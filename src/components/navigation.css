@@ -1,0 +1,45 @@
+.nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 50; height: var(--nav-h);
+  border-bottom: 1px solid transparent;
+  transition: background .25s, border-color .25s;
+}
+.nav.scrolled { background: rgba(19, 19, 21, 0.86); border-bottom-color: var(--line); backdrop-filter: saturate(140%) blur(10px); -webkit-backdrop-filter: saturate(140%) blur(10px); }
+.nav-inner { height: 100%; display: flex; align-items: center; gap: 24px; }
+
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-right: auto; }
+.brand-mark {
+  display: grid; place-items: center; width: 32px; height: 32px; border-radius: 8px;
+  font: 600 13px/1 var(--mono); color: var(--accent); background: var(--accent-bg); border: 1px solid var(--accent-line);
+}
+.brand-name { font-weight: 600; letter-spacing: -0.01em; }
+
+.nav-links { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+.nav-links a {
+  display: flex; align-items: baseline; gap: 6px; padding: 8px 10px; border-radius: 8px;
+  color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s, background .2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--text); background: var(--surface); }
+.nav-num { font: 500 10.5px/1 var(--mono); color: var(--dim); }
+.nav-links a.active .nav-num { color: var(--accent); }
+.nav-cta-mobile { display: none; }
+
+.nav-toggle { display: none; width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--line-2); background: var(--surface); color: var(--text); cursor: pointer; place-items: center; }
+.nav-toggle svg { width: 20px; height: 20px; }
+
+@media (max-width: 960px) {
+  .nav { background: rgba(19, 19, 21, 0.92); border-bottom-color: var(--line); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .nav-toggle { display: grid; }
+  .nav-cta { display: none; }
+  .nav-links {
+    position: fixed; top: var(--nav-h); left: 0; right: 0; bottom: 0;
+    flex-direction: column; gap: 2px; padding: 20px var(--gutter);
+    background: var(--bg); border-top: 1px solid var(--line);
+    transform: translateY(-8px); opacity: 0; visibility: hidden; transition: opacity .2s, transform .2s, visibility .2s;
+  }
+  .nav-links.open { opacity: 1; transform: none; visibility: visible; }
+  .nav-links a { font-size: 20px; padding: 14px 6px; border-bottom: 1px solid var(--line); border-radius: 0; background: none !important; }
+  .nav-num { font-size: 12px; min-width: 22px; }
+  .nav-cta-mobile { display: block; margin-top: 20px; }
+  .nav-cta-mobile a { border-bottom: 0; justify-content: center; width: 100%; font-size: 15px; padding: 0; }
+}

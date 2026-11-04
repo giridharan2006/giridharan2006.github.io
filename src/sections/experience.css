@@ -1,0 +1,22 @@
+.timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+.tl-item { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 18px; }
+.tl-rail { position: relative; display: flex; justify-content: center; }
+.tl-rail::before { content: ''; position: absolute; top: 0; bottom: -18px; width: 1px; background: var(--line-2); }
+.tl-item:last-child .tl-rail::before { bottom: 50%; }
+.tl-dot { position: relative; margin-top: 28px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent-strong); border: 3px solid var(--bg); box-shadow: 0 0 0 1px var(--accent); }
+
+.tl-card { padding: clamp(20px, 3vw, 28px); }
+.tl-head { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; margin-bottom: 16px; }
+.tl-org { margin: 0 0 6px; font-size: 13px; color: var(--accent); font-weight: 600; }
+.tl-head h3 { font-size: 22px; }
+.tl-place { margin: 4px 0 0; color: var(--muted); font-size: 14.5px; }
+.tl-dates { min-width: 0; white-space: nowrap; font-size: 11.5px; }
+.tl-points { margin: 0 0 18px; padding: 0; list-style: none; display: grid; gap: 8px; }
+.tl-points li { position: relative; padding-left: 22px; color: var(--text-2); }
+.tl-points li::before { content: '›'; position: absolute; left: 4px; top: -1px; color: var(--accent); font: 600 17px/1.6 var(--mono); }
+
+@media (max-width: 620px) {
+  .tl-item { grid-template-columns: 1fr; }
+  .tl-rail { display: none; }
+  .tl-head { flex-direction: column-reverse; gap: 10px; }
+}

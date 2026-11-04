@@ -1,0 +1,30 @@
+/* Light "paper" band, taken from the deck's light slides. */
+.paper-band { background: var(--paper); color: var(--ink); border-top: 0 !important; }
+.paper-band .eyebrow { color: var(--accent-strong); }
+.paper-band .eyebrow .num { color: #7c7c86; }
+.paper-band :focus-visible { outline-color: var(--accent-strong); }
+
+.edu-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 18px; align-items: start; }
+.edu-main { background: var(--ink); color: var(--text); border-radius: var(--r); padding: clamp(22px, 3vw, 32px); }
+.edu-kicker { margin: 0 0 10px; font-size: 12.5px; color: var(--accent); }
+.edu-main h3 { font-size: clamp(24px, 2.6vw, 30px); letter-spacing: -0.03em; }
+.edu-degree { margin: 6px 0 22px; color: var(--muted); }
+.edu-cgpa { display: flex; align-items: baseline; gap: 12px; padding: 16px 18px; border-radius: 12px; background: var(--accent-bg); border: 1px solid var(--accent-line); margin-bottom: 20px; }
+.edu-cgpa-v { font: 700 40px/1 var(--sans); letter-spacing: -0.04em; color: var(--accent); }
+.edu-cgpa-l { color: var(--text-2); font-size: 14px; }
+.edu-earlier { list-style: none; margin: 0; padding: 0; display: grid; }
+.edu-earlier li { display: flex; justify-content: space-between; align-items: baseline; gap: 4px 12px; flex-wrap: wrap; padding: 10px 0; border-top: 1px solid var(--line); font-size: 14px; color: var(--text-2); }
+.edu-earlier .mono { color: var(--muted); font-size: 12.5px; }
+
+.cert-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.cert { display: grid; grid-template-columns: 34px 1fr; gap: 12px; padding: 18px 20px; background: var(--paper-2); border: 1px solid var(--paper-line); border-radius: var(--r); }
+.cert-n { font-size: 12px; color: var(--accent-strong); padding-top: 3px; }
+.cert h4 { margin: 0 0 4px; font-size: 17px; letter-spacing: -0.015em; }
+.cert h4 a { text-decoration: none; display: inline-flex; gap: 6px; align-items: center; }
+.cert h4 a:hover { color: var(--accent-strong); text-decoration: underline; }
+.cert h4 svg { width: 14px; height: 14px; color: var(--ink-2); }
+.cert-org { margin: 0 0 6px; font-size: 14px; color: var(--ink-2); }
+.cert-org .mono { font-size: 12.5px; }
+.cert-note { margin: 0; font-size: 14px; color: #44444b; }
+
+@media (max-width: 860px) { .edu-grid { grid-template-columns: 1fr; } }
