@@ -1,5 +1,6 @@
 /* Light "paper" band, taken from the deck's light slides. */
-.paper-band { background: var(--paper); color: var(--ink); border-top: 0 !important; }
+.paper-band > .container { position: relative; }
+.paper-band .paper-panel { background: var(--paper); color: var(--ink); border-radius: 20px; padding: clamp(24px, 4.5vw, 56px); }
 .paper-band .eyebrow { color: var(--accent-strong); }
 .paper-band .eyebrow .num { color: #7c7c86; }
 .paper-band :focus-visible { outline-color: var(--accent-strong); }

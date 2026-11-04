@@ -1,11 +1,12 @@
 import Reveal from '../components/Reveal.jsx';
 import SectionHead from '../components/SectionHead.jsx';
 import { GitHubIcon } from '../components/Icons.jsx';
-import { CineTraceVisual, CompilerVisual, NetworkVisual, TravelVisual } from '../components/ProjectVisuals.jsx';
+import { CineTraceVisual, CompilerVisual, NetworkVisual } from '../components/ProjectVisuals.jsx';
+import { TravelArchitecture, TravelGallery, TravelWorkflow } from '../components/TravelShowcase.jsx';
 import { projects, robotics } from '../data/projects.js';
 import './projects.css';
 
-const visuals = { cinetrace: CineTraceVisual, compiler: CompilerVisual, travel: TravelVisual, network: NetworkVisual };
+const visuals = { cinetrace: CineTraceVisual, compiler: CompilerVisual, travel: TravelGallery, network: NetworkVisual };
 
 function RepoButton({ href, label }) {
   if (!href) return null;
@@ -19,7 +20,8 @@ function RepoButton({ href, label }) {
 function ProjectCard({ p, flip }) {
   const Visual = visuals[p.visual];
   return (
-    <Reveal as="article" className={`card project ${flip ? 'flip' : ''}`} aria-labelledby={`p-${p.id}`}>
+    <Reveal as="article" className={`card project ${flip ? 'flip' : ''} ${p.featured ? 'featured' : ''}`} aria-labelledby={`p-${p.id}`}>
+      {p.featured && <span className="featured-tag mono">featured AI project</span>}
       <div className="project-copy">
         <p className="eyebrow"><span className="num">{p.index}</span><span aria-hidden="true">·</span>{p.kicker}</p>
         <h3 id={`p-${p.id}`} className="project-title">{p.title}</h3>
@@ -36,6 +38,12 @@ function ProjectCard({ p, flip }) {
         <RepoButton href={p.repo} label={p.title} />
       </div>
       <div className="project-visual">{Visual && <Visual />}</div>
+      {p.featured && (
+        <div className="project-deep">
+          <TravelWorkflow />
+          <TravelArchitecture />
+        </div>
+      )}
     </Reveal>
   );
 }

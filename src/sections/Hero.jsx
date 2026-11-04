@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import DashField from '../components/DashField.jsx';
 import { ArrowIcon, DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon } from '../components/Icons.jsx';
 import { profile } from '../data/profile.js';
 import './hero.css';
@@ -12,8 +11,6 @@ const phases = [
   { n: '04', name: 'Decide', sub: 'cost gate', out: [['optimizer', '$d*7 → ($d<<3)-$d']], tone: 'ok', pill: 'ACCEPT' },
   { n: '05', name: 'Verify', sub: 'time-travel SQL', out: [['verifier', '4,294 claims, 0 invalid']], tone: 'ok', pill: 'VALID' },
 ];
-
-const VORTICES = [{ x: 0.78, y: 0.36 }, { x: 0.18, y: 0.92 }];
 
 function SystemPanel() {
   const [step, setStep] = useState(0);
@@ -66,8 +63,6 @@ function SystemPanel() {
 export default function Hero() {
   return (
     <section id="top" className="hero">
-      <DashField vortices={VORTICES} className="hero-field" />
-      <div className="hero-fade" aria-hidden="true" />
       <div className="container hero-grid">
         <div className="hero-copy">
           <p className="eyebrow hero-in" style={{ '--d': '0ms' }}>Computer Science Undergraduate · {profile.university}</p>

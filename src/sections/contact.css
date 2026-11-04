@@ -1,5 +1,4 @@
-.contact { overflow: hidden; border-top: 0 !important; }
-.contact-fade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(90deg, rgba(19,19,21,.97) 0%, rgba(19,19,21,.88) 45%, rgba(19,19,21,.3) 85%); }
+.contact { border-top: 0 !important; }
 .contact-inner { position: relative; }
 .contact h2 { max-width: 22ch; }
 .channels { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr) minmax(0, 1fr); gap: 12px; margin-bottom: 22px; }

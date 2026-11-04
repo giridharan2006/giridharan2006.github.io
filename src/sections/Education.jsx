@@ -7,6 +7,7 @@ export default function Education() {
   return (
     <section id="education" className="section paper-band">
       <div className="container">
+        <div className="paper-panel">
         <Reveal className="section-head">
           <p className="eyebrow"><span className="num">06</span><span aria-hidden="true">·</span>Education & certifications</p>
           <h2>Learning, formally and otherwise</h2>
@@ -40,6 +41,7 @@ export default function Education() {
               </Reveal>
             ))}
           </ol>
+        </div>
         </div>
       </div>
     </section>

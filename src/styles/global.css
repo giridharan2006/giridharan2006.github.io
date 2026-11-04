@@ -42,7 +42,20 @@
   --max: 1160px;
   --gutter: clamp(16px, 4vw, 40px);
   --nav-h: 64px;
+
+  /* MagnetLines background: faint neutral lines that warm to the accent near the pointer */
+  --ml-line: #c9c8d6;
+  --ml-alpha: .08;
+  --ml-peak: .36;
+  --ml-glow: #8ea2e6;
 }
+
+/* ---------- magnet-lines background (from the Mini Compiler web UI) ---------- */
+.bg-field { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.bg-field canvas { display: block; }
+.bg-vignette { position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 70% at 50% 40%, transparent 30%, var(--bg) 100%); }
+.app { position: relative; z-index: 1; min-height: 100vh; }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 12px); }
@@ -139,7 +152,7 @@ h3 { font-size: 20px; letter-spacing: -0.015em; line-height: 1.25; }
 
 /* ---------- cards ---------- */
 .card {
-  background: var(--surface);
+  background: rgba(27, 27, 30, .9);
   border: 1px solid var(--line);
   border-radius: var(--r);
   transition: border-color .25s, transform .25s;

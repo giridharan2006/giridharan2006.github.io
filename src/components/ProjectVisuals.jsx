@@ -1,7 +1,4 @@
-import { useState } from 'react';
 import cinetraceShot from '../assets/cinetrace-for-you.webp';
-import travelResults from '../assets/travel-planner-results.webp';
-import travelBooking from '../assets/travel-planner-booking.webp';
 
 /* ---------------- CineTrace: provenance tree + verifier results ---------------- */
 const verify = [
@@ -50,7 +47,7 @@ const log = [
   ['REJECT', '$r = $c * 11', '$c+($c<<1)+($c<<3)', '28 → 29', '+1'],
   ['ACCEPT', '$s = $d * 7', '($d<<3)-$d', '28 → 27', '−1'],
 ];
-const cycles = [['Unoptimized', 321, 'grey'], ['Normal passes', 297, 'amber'], ['Cost-gated (ours)', 197, 'blue']];
+const cycles = [['Unoptimized', 980, 'grey'], ['Normal passes', 877, 'amber'], ['Cost-gated (ours)', 616, 'blue']];
 
 export function CompilerVisual() {
   return (
@@ -70,40 +67,16 @@ export function CompilerVisual() {
           </div>
         ))}
       </div>
-      <div className="cycles" aria-label="Measured VM cycles over nine example programs">
-        <p className="viz-label mono">measured VM cycles · 9 programs · lower is better</p>
+      <div className="cycles" aria-label="Measured VM cycles over twelve example programs">
+        <p className="viz-label mono">measured VM cycles · 12 programs · lower is better</p>
         {cycles.map(([k, v, c]) => (
           <div key={k} className="crow">
             <span className="clabel">{k}</span>
-            <div className="cbar" aria-hidden="true"><i className={c} style={{ width: `${(v / 321) * 100}%` }} /></div>
+            <div className="cbar" aria-hidden="true"><i className={c} style={{ width: `${(v / 980) * 100}%` }} /></div>
             <span className="mono vnum">{v}</span>
           </div>
         ))}
       </div>
-    </div>
-  );
-}
-
-/* ---------------- Travel planner: real outputs from the report ---------------- */
-const travelTabs = [
-  { id: 'eval', label: 'evaluation', src: travelResults, w: 1800, h: 630, alt: 'Two charts. Left: preference questions per trip fall to under one after the first trip for plan-aware strategies with memory, while the no-memory variant stays near six. Right: on the first trip, ask-all asks 9 questions and plan-aware asks 6, both reaching 100% oracle match; ask-none reaches 11%.', cap: 'Questions per trip and first-trip burden vs decision quality (simulated users).' },
-  { id: 'run', label: 'agent run', src: travelBooking, w: 1555, h: 546, alt: 'Terminal session: the agent offers the recommended plan, a runner-up and the lowest-price option, shows an exact review of the mock flight and hotel bookings, waits for a typed YES, then confirms both bookings on the mock ledgers.', cap: 'Exact booking review, explicit YES, and confirmation codes checked on both mock ledgers.' },
-];
-
-export function TravelVisual() {
-  const [tab, setTab] = useState('eval');
-  const t = travelTabs.find((x) => x.id === tab);
-  return (
-    <div className="viz">
-      <div className="tabs" role="tablist" aria-label="Travel planner outputs">
-        {travelTabs.map((x) => (
-          <button key={x.id} type="button" role="tab" id={`tt-${x.id}`} aria-selected={tab === x.id} aria-controls="travel-panel" className={`chip ${tab === x.id ? 'on' : ''}`} onClick={() => setTab(x.id)}>{x.label}</button>
-        ))}
-      </div>
-      <figure id="travel-panel" role="tabpanel" aria-labelledby={`tt-${tab}`} className={`frame ${tab === 'eval' ? 'paper' : 'term'}`}>
-        <img key={t.id} src={t.src} width={t.w} height={t.h} loading="lazy" alt={t.alt} />
-        <figcaption>{t.cap}</figcaption>
-      </figure>
     </div>
   );
 }

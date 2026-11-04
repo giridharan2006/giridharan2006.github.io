@@ -1,11 +1,8 @@
 import { useState } from 'react';
-import DashField from '../components/DashField.jsx';
 import Reveal from '../components/Reveal.jsx';
 import { ArrowIcon, DownloadIcon, GitHubIcon, LinkedInIcon, MailIcon } from '../components/Icons.jsx';
 import { profile } from '../data/profile.js';
 import './contact.css';
-
-const VORTICES = [{ x: 0.85, y: 0.5 }];
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
@@ -21,8 +18,6 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section contact">
-      <DashField vortices={VORTICES} spacing={28} />
-      <div className="contact-fade" aria-hidden="true" />
       <div className="container contact-inner">
         <Reveal className="section-head">
           <p className="eyebrow"><span className="num">07</span><span aria-hidden="true">·</span>Contact</p>
